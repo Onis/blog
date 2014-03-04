@@ -1,0 +1,12 @@
+%h1 Список записей:
+
+%table{border: "1"}
+	%tr
+		%th Заголовок
+		%th Содержание
+	- @posts.each do |post|
+		%tr
+			%td 
+				= post.title
+			%td 
+				= post.text
