@@ -1,15 +1,23 @@
 %h1 Новая запись
 
-= form_for :post, url: posts_path do |f| 
+= form_for :post, url: posts_path do |f|
+	- if @post.errors.any?
+		#error_explanation
+			%h2 
+				= pluralize(@post.errors.count, "error")
+				мешающие сохранению данной записи:
+			%ul
+				- @post.errors.full_messages.each do |msg|
+					%li 
+						= msg
 	%p
-		= f.label "Заголовок"
+		= f.label "Заголовок" 
 		%br
-		= f.text_field :title
-
-	%p
-		= f.label "Содержание" 
+		= f.text_field :title 
+	%p 
+		= f.label "Содержание"
 		%br
-		= f.text_area :text 
-
+		= f.text_area :text
 	%p
 		= f.submit "Сохранить"
+= link_to "Назад", posts_path
