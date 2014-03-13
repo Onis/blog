@@ -5,3 +5,7 @@
 %p
 	%strong Содержание:
 	= @post.text
+
+= link_to 'Назад', posts_path
+|
+= link_to 'Изменить', edit_post_path(@post)
