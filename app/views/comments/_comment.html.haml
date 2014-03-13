@@ -1,0 +1,12 @@
+%p
+	%strong Комментатор:
+	= comment.commenter
+
+%p
+	%strong Комментарий:
+	= comment.body
+
+%p
+	= link_to 'Удаление комментария', [comment.post, comment], 
+	method: :delete, 
+	data: {confirm: 'Вы уверены?'}

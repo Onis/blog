@@ -6,6 +6,12 @@
 	%strong Содержание:
 	= @post.text
 
-= link_to 'Назад', posts_path
-|
+%h2 Комментарии:
+= render @post.comments         
+      
+%h2 Добавить комментарий:
+= render 'comments/form'
+
 = link_to 'Изменить', edit_post_path(@post)
+|
+= link_to 'Назад', posts_path
